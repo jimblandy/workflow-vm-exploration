@@ -16,6 +16,7 @@ int main(int argc, char **argv) {
   memset(&attrs, 0, sizeof(attrs));
   attrs.exclude_kernel = 1;
   attrs.exclude_hv = 1;
+  attrs.exclude_idle = 1;
   int status = perf_event_open(&attrs, 0, -1, -1, PERF_FLAG_FD_NO_GROUP);
   if (status > 0) {
     printf("success: %d", status);
