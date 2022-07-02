@@ -1,0 +1,15 @@
+# Tests to run on each push to master.
+name: push to master
+on: [push, pull_request]
+
+jobs:
+  perf-event-open:
+    name: Try perf_event_open system call
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: compile
+        run: gcc open.c -o open
+      - name: run
+        run: ./open
+
